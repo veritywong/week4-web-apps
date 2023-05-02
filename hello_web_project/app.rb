@@ -7,7 +7,11 @@ class Application < Sinatra::Base
         return "Hello #{name}"
     end
        
-    
+    get '/names' do
+        names = params[:names]
+
+        return "#{names}"
+    end
 end
 
 # Incoming request: GET /todos/1 # sinatra will look through the different options below 
