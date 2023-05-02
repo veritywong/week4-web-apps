@@ -4,7 +4,7 @@ class Application < Sinatra::Base
     # GET /
     # Root path (homepage, index page)
     get '/' do
-
+        
         return 'Hello!'
     end
 
@@ -30,6 +30,13 @@ class Application < Sinatra::Base
         title = params[:title]
 
         return "Post was created with title: #{title}"
+    end
+
+    post '/submit' do
+        name = params[:name]
+        message = params[:message]
+
+        return "Thanks #{name}, you sent this message: #{message}"
     end
 end
 
