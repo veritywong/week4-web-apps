@@ -20,6 +20,12 @@ class Application < Sinatra::Base
         return "Hello #{name}, you are in the cohort #{cohort_name}"
     end
 
+    get '/hello' do
+
+        name = params[:name]
+        return "Hello #{name}"
+    end
+
     post '/posts' do
         title = params[:title]
 
