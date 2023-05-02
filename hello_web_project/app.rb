@@ -2,8 +2,12 @@ require 'sinatra/base'
 
 class Application < Sinatra::Base
     get '/hello' do
+        name = params[:name]
+
+        return "Hello #{name}"
     end
-        
+       
+    
 end
 
 # Incoming request: GET /todos/1 # sinatra will look through the different options below 
