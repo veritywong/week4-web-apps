@@ -7,15 +7,19 @@ describe Application do
 
     let(:app) { Application.new }
 
-    # GET /
-    context 'GET /' do
-        it 'returns 200 ok' do
-            response = get('/')
-            # response = post('/', name: 'Verity', cohort_name: 'April') # would send post request with parameters
+    context 'GET /hello' do
+        it 'should return "Hello Verity"' do
+            response = get('/hello?name=Verity')
 
-            expect(response.status).to be(200)
-            expect(response.body). to eq('Hello!')
+            expect(response.status).to eq(200)
+            expect(response.body).to eq('Hello Verity')
         end
 
+        it 'should return "Hello Josh"' do
+            response = get('/hello?name=Josh')
+
+            expect(response.status).to eq(200)
+            expect(response.body).to eq('Hello Josh')
+        end
     end
 end
