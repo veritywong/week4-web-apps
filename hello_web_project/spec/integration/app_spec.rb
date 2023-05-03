@@ -9,7 +9,7 @@ describe Application do
 
     context 'GET /' do
         it 'returns "hell" through html index file' do
-            response = get('/')
+            response = get('/', greeting: 'hello')
 
             expect(response.body).to include('hello')
         end

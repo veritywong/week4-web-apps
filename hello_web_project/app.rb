@@ -1,6 +1,12 @@
 require 'sinatra/base'
 
 class Application < Sinatra::Base
+    get '/' do
+        @greeting = params[:greeting]
+
+        return erb(:index)
+    end
+    
     get '/hello' do
         name = params[:name]
 
