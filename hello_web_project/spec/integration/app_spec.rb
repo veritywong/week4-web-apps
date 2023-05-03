@@ -7,6 +7,14 @@ describe Application do
 
     let(:app) { Application.new }
 
+    context 'GET /' do
+        it 'returns "hell" through html index file' do
+            response = get('/')
+
+            expect(response.body).to include('hello')
+        end
+    end
+
     context 'GET /hello' do
         it 'should return "Hello Verity"' do
             response = get('/hello?name=Verity')
@@ -29,6 +37,14 @@ describe Application do
 
             expect(response.status).to eq(200)
             expect(response.body).to eq('Julia, Mary, Karim')
+        end
+    end
+
+    context 'POST /sort-names' do
+        it 'should return names in alphabetical order' do
+            response = post('/sort-names?names=Joe,Alice,Zoe,Julia,Kieran')
+
+            expect(response.body).to eq('Alice,Joe,Julia,Kieran,Zoe')
         end
     end
 

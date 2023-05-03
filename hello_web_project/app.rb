@@ -12,6 +12,12 @@ class Application < Sinatra::Base
 
         return "#{names}"
     end
+
+    post '/sort-names' do
+        names = params[:names]
+
+        return "#{names.split(",").sort.join(",")}"
+    end
 end
 
 # Incoming request: GET /todos/1 # sinatra will look through the different options below 
